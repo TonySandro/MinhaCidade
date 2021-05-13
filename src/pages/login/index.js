@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("./images/imagePageLogin.png")}
+        source={require("./src/images/imagePageLogin.png")}
         style={styles.logo}
       />
       <Text style={styles.h1}>Login</Text>
@@ -27,8 +27,14 @@ export default function App() {
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Text style={styles.login}>Crie aqui.</Text>
+      <Text style={styles.p}>Ou entre com:</Text>
+      <Image
+        source={require("./src/images/icones.png")}
+        style={styles.icones}
+      />
+
+      <TouchableOpacity style={styles.crie}>
+        <Text>Não tem uma conta?<Text style={styles.buttonCrie}> Crie aqui.</Text></Text>
       </TouchableOpacity>
 
       <StatusBar style="auto" />
@@ -37,6 +43,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  crie: {
+    marginTop: '1%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  buttonCrie: {
+    color: '#7C73E6',
+  },
+
   container: {
     fontFamily: 'Roboto',
     flex: 1,
@@ -55,8 +71,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     marginTop: '5%',
-    marginBottom: '5%',
+    marginBottom: '3%',
     color: '#7C73E6',
+  },
+
+  p: {
+    fontStyle: 'normal',
+    fontSize: 14,
+    marginTop: '2%',
+    color: '#7C73E6',
+  },
+
+  icones: {
+    marginTop: '1%'
   },
 
   input: {
