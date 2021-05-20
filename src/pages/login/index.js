@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("./src/images/imagePageLogin.png")}
+        source={require("../../images/imagePageLogin.png")}
         style={styles.logo}
       />
       <Text style={styles.h1}>Login</Text>
@@ -29,7 +29,7 @@ export default function App() {
 
       <Text style={styles.p}>Ou entre com:</Text>
       <Image
-        source={require("./src/images/icones.png")}
+        source={require("../../images/icones.png")}
         style={styles.icones}
       />
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     height: 35,
     fontSize: 18,
     marginTop: '7%',
-    borderBottomColor: '#000000',
+    borderBottomColor: '#4F4F4F',
     borderBottomWidth: 1,
 
   },
