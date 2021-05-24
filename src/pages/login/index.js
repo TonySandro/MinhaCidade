@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 
 export default function App() {
+  const [name, setName ] = useState();
+  const [email, setEmail ] = useState();
+  const [password, setPassword ] = useState();
+  const [loading, setLoading ] = useState(false)
+
   return (
     <View style={styles.container}>
       <Image

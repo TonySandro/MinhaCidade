@@ -11,10 +11,10 @@ export default function App() {
         const data = {
             name, email, password
         }
-        api.post('/users',data).then((response) => {
-            console.log(response.data)
+        api.post('/users', data).then((response) => {
+            // console.log(response.data)
+            return response
         }).catch(e => console.log(e))
-
     }
 
     return (
