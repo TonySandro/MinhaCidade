@@ -1,8 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-export default function App() {
+import './style'
+
+export default function App({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
@@ -12,11 +14,11 @@ export default function App() {
       <Text style={styles.h1}>Bem Vindo ao Minha Cidade!</Text>
       <Text style={styles.p}>Conheça melhor a sua, ou qualquer outra cidade.</Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cadastro')}>
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.login}>Fazer Login</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.login} >Fazer Login</Text>
       </TouchableOpacity>
 
       <StatusBar style="auto" />

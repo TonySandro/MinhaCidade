@@ -1,10 +1,12 @@
 import React from 'react';
-import Welcome from './src/pages/welcome'
-import Login from './src/pages/login'
-import Cadastro from './src/pages/cadastro'
+import Routes from './src/routes';
+
+import { AuthProvider } from './src/Context/AuthContext.js'
 
 export default function App() {
   return (
-    <Cadastro/>
-    )
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
+  )
 }
