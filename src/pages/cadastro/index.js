@@ -1,16 +1,26 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useState, useEffect } from "react";
 import {
-  StyleSheet,
   Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TextInput,
   Platform,
 } from "react-native";
+import {
+  Container,
+  Login,
+  ButtonCrie,
+  Title,
+  PText,
+  Icones,
+  InputText,
+  Button,
+  ButtonText,
+  AddImage,
+  AddImageText,
+} from "./style";
+
 import * as ImagePicker from "expo-image-picker";
 import { Context } from "../../Context/AuthContext.js";
+
 export default function App({ navigation }) {
   const { handleRegister } = useContext(Context);
   const [image, setImage] = useState(null);
@@ -45,7 +55,7 @@ export default function App({ navigation }) {
   };
   function signUp() {
     if (!name.length || !email.length || !password.length)
-      return alert("Preencha todos os campos para continuar!");
+      return alert("Preencha todos os campos PTexta continuar!");
     setDisabled(true);
     const formData = new FormData();
 
@@ -69,25 +79,22 @@ export default function App({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.h1}>Cadastro</Text>
-      <TextInput
-        style={styles.input}
+    <Container>
+      <Title>Cadastro</Title>
+      <InputText
         placeholder="Nome"
         onChangeText={(value) => {
           setName(value);
         }}
       />
-      <TextInput
-        style={styles.input}
+      <InputText
         placeholder="Email"
         onChangeText={(value) => {
           setEmail(value);
         }}
       />
 
-      <TextInput
-        style={styles.input}
+      <InputText
         placeholder="Senha"
         secureTextEntry={true}
         onChangeText={(value) => {
@@ -95,133 +102,32 @@ export default function App({ navigation }) {
         }}
       />
 
-      <TouchableOpacity style={styles.addFoto} onPress={pickImage}>
-        <Text style={styles.addFotoText}>Foto de Perfil</Text>
-      </TouchableOpacity>
+      <AddImage onPress={pickImage}>
+        <AddImageText>Foto de Perfil</AddImageText>
+      </AddImage>
 
-      <TouchableOpacity
-        style={styles.button}
+      <Button
         onPress={signUp}
         disabled={disabled}
       >
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
+        <ButtonText>Cadastrar</ButtonText>
+      </Button>
 
-      <Text style={styles.p}>Ou cadastre-se com :</Text>
-      <Image
+      <PText>Ou cadastre-se com :</PText>
+      <Icones
         source={require("../../images/icones.png")}
-        style={styles.icones}
       />
 
-      <TouchableOpacity style={styles.crie}>
+      <Login>
         <Text>
           Já tem uma conta?
-          <Text
-            style={styles.buttonCrie}
-            onPress={() => navigation.navigate("Login")}
-          >
-            {" "}
+          <ButtonCrie onPress={() => navigation.navigate("Login")}>
             Fazer Login.
-          </Text>
+          </ButtonCrie>
         </Text>
-      </TouchableOpacity>
+      </Login>
 
       <StatusBar style="auto" />
-    </View>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  crie: {
-    marginTop: "1%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  buttonCrie: {
-    color: "#7C73E6",
-  },
-
-  container: {
-    fontFamily: "Roboto_400Regular",
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  logo: {
-    marginTop: "2%",
-    width: "50%",
-    height: 100,
-  },
-
-  h1: {
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: 20,
-    // marginTop: '5%',
-    color: "#7C73E6",
-  },
-
-  p: {
-    fontStyle: "normal",
-    fontSize: 14,
-    marginTop: "2%",
-    color: "#7C73E6",
-  },
-
-  icones: {
-    marginTop: "1%",
-  },
-
-  input: {
-    width: "70%",
-    height: 35,
-    fontSize: 18,
-    marginTop: "7%",
-    borderBottomColor: "#4F4F4F",
-    borderBottomWidth: 1,
-  },
-
-  button: {
-    width: "65%",
-    height: 55,
-    marginTop: "5%",
-    borderRadius: 11,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#7C73E6",
-  },
-
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-
-  addFoto: {
-    width: "45%",
-    height: 50,
-
-    marginTop: "5%",
-    borderRadius: 11,
-    borderColor: "#585858AD",
-    borderWidth: 1,
-
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  addFotoText: {
-    color: "#585858AD",
-    fontSize: 17,
-  },
-
-  login: {
-    color: "#7C73E6",
-    fontWeight: "bold",
-    fontSize: 18,
-    marginTop: "7%",
-  },
-});
